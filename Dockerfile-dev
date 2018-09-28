@@ -1,0 +1,16 @@
+# Specify the base image
+ FROM node:alpine
+
+WORKDIR ./ /usr/app
+
+# COpy he files from current working DIR to  the container. This will copy package.json to the container
+ COPY ./package.json ./
+
+# Install dependencies
+ RUN npm install
+
+ COPY ./ ./
+
+# Default command
+  CMD ["npm","run", "start"]
+
